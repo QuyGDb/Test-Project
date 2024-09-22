@@ -7,8 +7,6 @@ public class TestInput : MonoBehaviour
 {
     /// <summary>
     /// test xem input system có được gọi trước update như trong unity lifecycle: nó đc gọi ở đoạn Input System
-    /// nhưng không thể chắc chắn về các hàm getkeydown, vì nếu event đc invoke ở đoạn Input event thì trong update 
-    /// GetMouseButtonDown sẽ thành true từ thời điểm đó đến cuối frame
     /// </summary>
     private Myproject InputAction;
     private InputAction fire;
@@ -22,17 +20,21 @@ public class TestInput : MonoBehaviour
 
         fire = InputAction.Player.Fire;
         fire.Enable();
-        fire.performed += ctx => Debug.Log("Fire" + Time.frameCount);
+        fire.performed += OnFire;
     }
+
     private void OnDisable()
     {
         fire.Disable();
-        fire.performed -= ctx => Debug.Log("Fire");
+        fire.performed -= OnFire;
     }
-
+    void OnFire(InputAction.CallbackContext callbackContext)
+    {
+        Debug.Log("Fire" + Time.frameCount);
+        Debug.Log(Input.GetMouseButtonDown(0) + " abc " + Time.frameCount);
+    }
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0) == true)
         {
             Debug.Log("true" + Time.frameCount);
