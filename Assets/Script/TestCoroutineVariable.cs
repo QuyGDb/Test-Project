@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestCoroutine : MonoBehaviour
+public class TestCoroutineVariable : MonoBehaviour
 {
     private Coroutine coroutine;
     private bool isLog = true;
@@ -11,7 +11,7 @@ public class TestCoroutine : MonoBehaviour
     {
         coroutine = StartCoroutine(DoSomethingCoroutine());
         Debug.Log(coroutine);
-        Debug.Log("c1" + Time.frameCount);
+        Debug.Log("s1" + Time.frameCount);
     }
     // Update is called once per frame
     void Update()
@@ -25,10 +25,10 @@ public class TestCoroutine : MonoBehaviour
     }
     private IEnumerator DoSomethingCoroutine()
     {
-        Debug.Log("c2" + Time.frameCount);
+        Debug.Log("d2" + Time.frameCount);
         Debug.Log(coroutine);
         yield return new WaitForEndOfFrame();
 
-        Debug.Log("c3" + Time.frameCount);
+        Debug.Log("d3" + Time.frameCount);
     }
 }

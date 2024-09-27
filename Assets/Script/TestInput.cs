@@ -21,6 +21,7 @@ public class TestInput : MonoBehaviour
         fire = InputAction.Player.Fire;
         fire.Enable();
         fire.performed += OnFire;
+
     }
 
     private void OnDisable()
@@ -43,6 +44,7 @@ public class TestInput : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        Debug.Log(Input.GetMouseButtonDown(0) + " mouse " + Time.frameCount);
         Debug.Log("Mouse Down" + Time.frameCount);
     }
 
