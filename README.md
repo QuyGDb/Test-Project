@@ -1,4 +1,4 @@
-Project này nhằm mục đích test các chức năng trong Unity hoạt đồng như nào
+Project này nhằm mục đích test các chức năng trong Unity hoạt động như nào
 
 
 1️⃣ CallExecutionOrder.cs
